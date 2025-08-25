@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torneo Épico</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Bebas Neue', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      overflow-x: hidden;
+      text-align: center;
+      position: relative;
+    }
+
+    .decoracion {
+      position: fixed;
+      width: 150px;
+      opacity: 0.7;
+      animation: flotar 4s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    .izq.arriba { left: 0; top: 20%; }
+    .izq.abajo  { left: 0; bottom: 20%; }
+    .der.arriba { right: 0; top: 20%; }
+    .der.abajo  { right: 0; bottom: 20%; }
+
+    @keyframes flotar {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-20px); }
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 5rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff0080, 0 0 30px #ff0080; }
+      to   { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffea, 0 0 60px #00ffff; }
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      opacity: 0;
+      animation: slideUp 2s forwards 1s;
+    }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(-10px); }
+    }
+
+    /* 🎯 ESTILO COUNTDOWN */
+    #countdown {
+      font-size: 2rem;
+      margin-top: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 15px 30px;
+      border-radius: 15px;
+      display: inline-block;
+      animation: glow 2s infinite alternate;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      background: linear-gradient(45deg, #ff0080, #7928ca);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ff0080;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .info {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      background: #111;
+      padding: 20px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 2.5rem; }
+      header p { font-size: 1rem; }
+      #countdown { font-size: 1.2rem; padding: 10px 15px; }
+      .btn { padding: 10px 20px; font-size: 1rem; }
+      .info { font-size: 1rem; padding: 10px; }
+      .decoracion { width: 80px; opacity: 0.5; }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      header h1 { font-size: 3.5rem; }
+      header p { font-size: 1.2rem; }
+      #countdown { font-size: 1.5rem; }
+      .btn { padding: 12px 30px; font-size: 1.1rem; }
+      .info { font-size: 1.1rem; max-width: 90%; }
+      .decoracion { width: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔥 2 imágenes por cada lado 🔥 -->
+  <img src="heaven.clan.png" alt="Decoración izquierda arriba" class="decoracion izq arriba">
+  <img src="jax.clan.png" alt="Decoración izquierda abajo" class="decoracion izq abajo">
+  <img src="top.clan.png" alt="Decoración derecha arriba" class="decoracion der arriba">
+  <img src="oh.8hidalgo.png" alt="Decoración derecha abajo" class="decoracion der abajo">
+
+  <header>
+    <h1>🔥 Torneo Épico 2025 🔥</h1>
+    <p>Demuestra tus habilidades y conviértete en el campeón</p>
+
+    <!-- ⏳ CUENTA REGRESIVA -->
+    <div id="countdown">Cargando cuenta regresiva...</div>
+
+    <button class="btn" onclick="scrollToInfo()">TOCA PARA VER LA info</button>
+    <a href="reglas.html" class="btn">VER REGLAS</a>
+  </header>
+
+  <section id="info">
+    <h2>Detalles del Torneo</h2>
+    <div class="info">
+      <p>
+        📅 Fecha: 15 de Octubre 2025 <br>
+        📍 Lugar: Arena Virtual <br>
+        🏆 Premio increíble para el único ganador y representar a su clan <br><br>
+        Dile a tu líder del clan que te una al torneo.  
+        Solo pueden entrar 8 jugadores de cada clan.  
+        <br><br>
+        ¡Listo para brillar!
+      </p>
+      <br>
+      <br>
+      <br>
+      <p>
+        Va a tener varias fases: primero sería una fase de grupos,
+        ahí se jugarían 4 rondas por grupo después pasan a octavos,
+        donde se jugarían 7 rondas luego vienen las semifinales
+        con 8 rondas y ya de ahí los que pasen van a la final.  
+        El que gane todo se lleva 7000 diamante y el segundo lugar de 500 diamantes 
+        Si un jugador no responde o no participa, su grupo se gana automáticamente 1 punto 
+        (pero solo ese grupo, no los demás).
+      </p>
+      <br>
+      <br>
+      <br>
+      <p>
+        Ojo este torneo es para poner a prueba si me a quedado bien el torneo y hacer dinamicas mas grande de 17,000 diamante incluso de 20 etc
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    2025 Torneo Épico - MATIU (creador de los eventos)
+  </footer>
+
+  <script>
+    function scrollToInfo() {
+      document.getElementById("info").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // 🎯 COUNTDOWN
+    const countdown = document.getElementById("countdown");
+    const targetDate = new Date("December 2, 2025 00:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        countdown.innerHTML = "🎉 ¡El torneo ha comenzado! 🎉";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `⏳ Faltan ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+</body>
+</html>

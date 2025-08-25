@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reglas del Torneo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Bebas Neue', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      padding: 60px 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff0080, 0 0 30px #ff0080; }
+      to   { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffea, 0 0 60px #00ffff; }
+    }
+
+    .decoracion-centro {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0;
+    }
+
+    .decoracion-centro img {
+      width: 200px;
+      animation: flotar 4s ease-in-out infinite alternate;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes flotar {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-20px); }
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .reglas {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.4rem;
+      line-height: 1.8;
+      text-align: left;
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 15px;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      background: linear-gradient(45deg, #ff0080, #7928ca);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ff0080;
+    }
+
+    footer {
+      background: #111;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Teléfonos pequeños */
+    @media (max-width: 480px) {
+      header h1 { font-size: 2.5rem; }
+      .reglas { font-size: 1rem; padding: 15px; }
+      .decoracion-centro img { width: 120px; }
+    }
+
+    /* Tabletas */
+    @media (min-width: 481px) and (max-width: 768px) {
+      header h1 { font-size: 3.2rem; }
+      .reglas { font-size: 1.2rem; }
+      .decoracion-centro img { width: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📜 Reglas del Torneo</h1>
+  </header>
+
+  <!-- 🔥 2 imágenes en el centro 🔥 -->
+  <div class="decoracion-centro">
+    <img src="cuartos.png" alt="Decoración central 1">
+    <img src="octavos.png" alt="Decoración central 2">
+  </div>
+
+  <section>
+    <h2>Normas Generales</h2>
+    <div class="reglas">
+      <p>✅ Respetar a todos los jugadores y organizadores</p>
+      <p>✅ Prohibido el uso de hacks, trampas o programas externos estaran vijilados y viendo sus usos de archivos (no se asusten solo es para prevenir tipo de hack)</p>
+      <p>✅ Cada jugador debe pertenecer a un clan registrado y su logo</p>
+      <p>✅ Máximo 8 jugadores por clan</p>
+      <p>✅ Las partidas se jugararan con escopetas</p>
+      <p>✅ El incumplimiento de las reglas resultará en descalificación</p>
+      <p>✅ contestar en tiempo y forma para poder entrar a jugar o si no se les daran 1 punto a los demas de su propio grupo y no resivira el punto el que no aya contestado</p>
+    </div>
+    <a href="../index.html" class="btn">⬅ Regresar al Inicio</a>
+  </section>
+
+  <footer>
+    2025 Torneo Épico - MATIU (creador de los eventos)
+  </footer>
+</body>
+</html>
